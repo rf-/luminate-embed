@@ -1,0 +1,202 @@
+.luminate-embed,
+.luminate-embed * {
+  box-sizing: border-box;
+  font-family: "Arial", "Helvetica", sans-serif;
+  font-size: 16px;
+}
+
+.luminate-embed {
+  padding: 1em;
+  position: relative;
+}
+
+.luminate-embed-form {
+  background-color: #eee;
+  max-width: 23em;
+  overflow: hidden; /* create block formatting context */
+  padding-bottom: 1.5em;
+}
+
+.luminate-embed-error {
+  color: #bf3036;
+  font-weight: bold;
+  margin: 1.2em 1.6em 0;
+}
+
+.luminate-embed-fields-block {
+  margin: 0 1.6em;
+}
+
+.luminate-embed-body-block {
+  border-top: 3px solid #ccc;
+  padding: 1.6em 1.6em 0;
+  margin-top: 1.6em;
+}
+
+.luminate-embed-required-fields-label {
+  font-size: 0.8em;
+  margin-bottom: 1em;
+  margin-top: 1.3em;
+  position: relative; /* anchor for "required" dot */
+}
+
+.luminate-embed-input-block {
+  margin-bottom: 1em;
+  position: relative; /* anchor for "required" dots */
+}
+
+.luminate-embed-required-fields-label:before,
+.luminate-embed-label--required:before {
+  background-color: #bf3036;
+  border-radius: 0.25em;
+  content: "";
+  display: block;
+  height: 0.4em;
+  left: -0.7em;
+  position: absolute;
+  top: 0.2em;
+  width: 0.4em;
+}
+
+.luminate-embed-label-text {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+}
+
+.luminate-embed-select-input,
+.luminate-embed-text-input,
+.luminate-embed-textarea {
+  width: 100%;
+}
+
+.luminate-embed-select-input {
+  border: 1px solid #999; /* Make font size adjustable in Safari */
+  font-size: 1.2em;
+  height: 2em; /* Work around Firefox weirdness with arrow button */
+}
+
+.luminate-embed-text-input {
+  border-bottom: 3px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-size: 1.2em;
+  padding: 0.4em;
+}
+
+.luminate-embed-textarea {
+  border-bottom: 3px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  height: 25em;
+  padding: 0.4em;
+}
+
+.luminate-embed-submit {
+  background-color: #bf3036;
+  border-bottom: 3px solid #8b1217;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  color: white;
+  float: right;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0.4em 1.6em 0 0;
+  padding: 0.5em 0.8em;
+}
+
+.luminate-embed-submit:active {
+  background-color: #b7232a;
+  border: none;
+  margin-bottom: 3px;
+  position: relative;
+  top: 3px;
+}
+
+.luminate-embed-spinner {
+  float: right;
+  position: relative;
+  height: 3.2em;
+  width: 3em;
+  margin-bottom: -2em; /* Avoid stretching container */
+}
+
+.luminate-embed-message-subject {
+  font-weight: bold;
+}
+
+.luminate-embed-message-greeting,
+.luminate-embed-message-signature {
+  margin: 1em 0;
+}
+
+.luminate-embed-placeholder {
+  background-color: #f8f8f8;
+  border-radius: 0.1em;
+  display: inline-block;
+  font-style: italic;
+  padding: 0.2em;
+}
+
+.luminate-embed-message-body {
+  white-space: pre-wrap;
+}
+
+.luminate-embed-thanks-message-wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.luminate-embed-thanks-message {
+  color: #4F79FF;
+  display: table-cell;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media (max-width: 24em) {
+  .luminate-embed {
+    padding: 1em 0;
+  }
+
+  .luminate-embed-form {
+    width: 100%;
+  }
+}
+
+@media (min-width: 44em) {
+  .luminate-embed-form {
+    display: inline-block;
+    max-width: none;
+  }
+
+  .luminate-embed-wrapper {
+    display: table;
+    min-width: 23em;
+  }
+
+  .luminate-embed-fields-block,
+  .luminate-embed-body-block {
+    display: table-cell;
+    margin: 0;
+    padding: 0 1.6em;
+    vertical-align: top;
+  }
+
+  .luminate-embed-fields-block {
+    width: 22em;
+  }
+
+  .luminate-embed-body-block {
+    border: none;
+    padding-top: 2.75em; /* hack: this happens to line it up with the left col */
+    width: 28em;
+  }
+}
+
