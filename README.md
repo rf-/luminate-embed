@@ -38,7 +38,7 @@ Here's a minimal example, with placeholders in all caps:
       apiKey: 'API_KEY',
       path: {
         nonsecure: 'http://ORGANIZATION.org/site/',
-        secure: 'https://secure2.convio.net/ORGANIZATION/site/'
+        secure: 'https://secureNUMBER.convio.net/ORGANIZATION/site/'  // e.g. secure2.convio.net or secure3.convio.net
       },
       actionId: ACTION_ID,
       preview: true
