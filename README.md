@@ -13,10 +13,10 @@
    browsers
 
  * Requires jQuery or Zepto to be loaded on the page, since it's built on top
-   of Noah Cooper's [luminateExtend.js]
+   of Noah Cooper's [`luminateExtend.js`]
 
  * Does not support multiple API keys or org URLs on the same page, since
-   [luminateExtend.js]'s configuration is global
+   [`luminateExtend.js`]'s configuration is global
 
 ## Usage
 
