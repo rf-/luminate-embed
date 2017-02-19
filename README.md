@@ -9,12 +9,14 @@
  * Supports `TextValue` and `MultiSingle` inputs, with special rendering logic
    for `state`, `subject`, and `body`
 
-## Dependencies
+ * Supports IE 8 and up, in theory, although it's only been tested on modern
+   browsers
 
- * jQuery or Zepto, since it's built on top of Noah Cooper's
-   [`luminateExtend.js`]
+ * Requires jQuery or Zepto to be loaded on the page, since it's built on top
+   of Noah Cooper's [luminateExtend.js]
 
- * IE 8 and up, in theory, although it's only been tested on modern browsers
+ * Does not support multiple API keys or org URLs on the same page, since
+   [luminateExtend.js]'s configuration is global
 
 ## Usage
 
