@@ -67,31 +67,15 @@ let initialized = false
 
 function setUpAction(options) {
   const {
-    // The organization's API key
-    apiKey,
-
-    // An object containing `nonsecure` and `secure` URLs for the organization
-    path,
-
-    // The id of the action to generate a form for
     actionId,
-
-    // A mapping from `questionId` to human-readable labels; fields listed in
-    // the docs have default labels already
-    fieldNames,
-
-    // An array of `questionId`s to hide from the user; when the user takes
-    // action, the default values for these fields will be sent
-    hiddenFields,
-
-    // The text to show on the submit button; defaults to "Take Action"
-    submitText,
-
-    // The DOM node to render the form into
+    apiKey,
     container,
-
-    // Should we make destructive requests in preview mode (for testing)?
+    extraParams,
+    fieldNames,
+    hiddenFields,
+    path,
     preview,
+    submitText,
   } = options
 
   if (!apiKey || !path) {
@@ -132,7 +116,11 @@ function setUpAction(options) {
         console.log($container.find(".luminate-embed-spinner"))
         spinner.spin($container.find(".luminate-embed-spinner").get(0))
 
-        const data = $(e.target).serialize()
+        let data = $(e.target).serialize()
+
+        if (extraParams) {
+          data = data + "&" + $.param(extraParams)
+        }
 
         takeAction(actionId, data, preview)
           .then(() => {

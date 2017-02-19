@@ -84,6 +84,13 @@ _leQ.push({
     secure: 'https://secure2.convio.net/myorg/site/'
   },
 
+  // An object containing extra parameters to send along with the action
+  // (e.g., for analytics)
+  extraParams: {
+    s_src: "foo",
+    s_subsrc: "bar"
+  },
+
   // The id of the action alert that you want to embed.
   actionId: ACTION_ID,
 
@@ -108,6 +115,7 @@ _leQ.push({
 
   // The text to show on the submit button; defaults to "Take Action".
   submitText: "Send Message",
+
 });
 ```
 
