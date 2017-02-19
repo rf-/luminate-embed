@@ -2,8 +2,10 @@ import compact from "underscore/compact"
 import contains from "underscore/contains"
 import forEach from "underscore/forEach"
 import isObject from "underscore/isObject"
+import luminate from "luminateExtend"
 import map from "underscore/map"
 import template from "underscore/template"
+
 import { log } from "./util"
 
 const prefix = "luminate-embed"
@@ -261,14 +263,18 @@ const stateOptions = `
 `
 
 export function renderForm(action, options) {
-  const { alert, _recipients, questions: { question: questions } } = action
+  const { alert, _recipients, questions: rawQuestions } = action
   const { fieldNames, hiddenFields, submitText } = options
+  const questions = luminate.utils.ensureArray(rawQuestions.question)
 
   // We track these fields separately since they have to be rendered in their
   // own block.
   let subjectField, bodyField
 
   const fields = compact(map(questions, question => {
+    const choices = question.questionChoices &&
+      luminate.utils.ensureArray(question.questionChoices.choice)
+
     let hidden = contains(hiddenFields, question.questionId)
 
     if (!fieldNames[question.questionId] && !hidden) {
@@ -295,7 +301,7 @@ export function renderForm(action, options) {
       value: isObject(question.value) ? "" : question.value,
       required: (question.required === "true"),
       type: question.questionType,
-      choices: question.questionChoices && question.questionChoices.choice,
+      choices,
       hidden
     }
 

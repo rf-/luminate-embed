@@ -1,5 +1,5 @@
 import Promise from "es6-promise"
-import luminate from "../vendor/luminateExtend-1.8.1"
+import luminate from "luminateExtend"
 
 function getActionRaw(data) {
   return new Promise((resolve, reject) => {
