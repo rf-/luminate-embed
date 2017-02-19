@@ -25,21 +25,34 @@ const render = template(`
         <div class="${prefix}-fields-block">
           <div class="${prefix}-required-fields-label">Required fields</div>
 
-          <% forEach(fields, field => { %>
+          <% forEach(fields, function(field) { %>
             <% if (field.hidden) { %>
-              <%= renderHiddenField({ field }) %>
+              <%= renderHiddenField({ field: field }) %>
             <% } else if (field.name === "state" ||
                           field.type === "MultiSingle") { %>
-              <%= renderSelectField({ field, forEach, stateOptions }) %>
+              <%=
+                renderSelectField({
+                  field: field,
+                  forEach: forEach,
+                  stateOptions: stateOptions
+                })
+              %>
             <% } else { %>
-              <%= renderTextField({ field }) %>
+              <%= renderTextField({ field: field }) %>
             <% } %>
           <% }) %>
         </div>
 
         <% if ((bodyField && !bodyField.hidden) ||
                (subjectField && !subjectField.hidden)) { %>
-          <%= renderBody({ alert, bodyField, subjectField, renderTextField }) %>
+          <%=
+            renderBody({
+              alert: alert,
+              bodyField: bodyField,
+              subjectField: subjectField,
+              renderTextField: renderTextField
+            })
+          %>
         <% } %>
       </div>
 
@@ -151,7 +164,7 @@ const renderSelectField = template(`
           <%= stateOptions %>
         <% } else { %>
           <option value=""></option>
-          <% forEach(field.choices, choice => { %>
+          <% forEach(field.choices, function(choice) { %>
             <option value="<%= choice.content %>"><%= choice.name %></option>
           <% }) %>
         <% } %>
