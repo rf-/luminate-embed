@@ -113,7 +113,7 @@ _leQ.push({
 
 ## Development
 
-Install dependencies:
+Install dependencies using [Yarn]:
 
 ```
 yarn
@@ -135,3 +135,4 @@ Built files end up in `build/`.
 
 [`luminateExtend.js`]: https://github.com/noahcooper/luminateExtend
 [`luminateExtend.js` docs]: https://github.com/noahcooper/luminateExtend#libSetup
+[Yarn]: https://yarnpkg.com
