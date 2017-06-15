@@ -46,7 +46,7 @@ Here's a minimal example, with placeholders in all caps:
 
     if (!document.getElementById("luminate-embed-script")) {
       var script = document.createElement('script');
-      script.src = "https://rawgit.com/rf-/luminate-embed/master/build/luminate-embed-0.0.1.min.js";
+      script.src = "https://rawgit.com/rf-/luminate-embed/master/build/luminate-embed-0.0.2.min.js";
       script.id = "luminate-embed-script";
       document.head.appendChild(script);
     }
