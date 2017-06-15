@@ -115,7 +115,6 @@ function setUpAction(options) {
         e.preventDefault()
         e.stopPropagation()
 
-        console.log($container.find(".luminate-embed-spinner"))
         spinner.spin($container.find(".luminate-embed-spinner").get(0))
 
         let data = $(e.target).serialize()
