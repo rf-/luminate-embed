@@ -97,7 +97,7 @@ function setUpAction(options) {
 
     const style = $("<style>")
     style.text(stylesheet)
-    style.appendTo(document.head)
+    style.prependTo(document.head)
   }
 
   getAction(actionId)
