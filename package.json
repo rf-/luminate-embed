@@ -1,6 +1,6 @@
 {
   "name": "luminate-embed",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Embed a Luminate Online action in any page",
   "scripts": {
     "build": "rollup -c && env MIN=1 rollup -c"
