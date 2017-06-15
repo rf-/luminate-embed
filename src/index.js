@@ -72,6 +72,7 @@ function setUpAction(options) {
     container,
     extraParams,
     fieldNames,
+    fieldOrder,
     hiddenFields,
     skippedFields,
     path,
@@ -106,6 +107,7 @@ function setUpAction(options) {
 
       $container.html(renderForm(action, {
         fieldNames: extend({}, defaultFieldNames, fieldNames),
+        fieldOrder,
         hiddenFields,
         skippedFields,
         submitText: submitText || "Take Action",

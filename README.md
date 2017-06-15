@@ -117,6 +117,10 @@ _leQ.push({
   // to the server.
   skippedFields: ["cc"],
 
+  // An array of field names to be shown in the specified order. Any fields
+  // that aren't mentioned will be shown afterwards in their natural order.
+  fieldOrder: ["last_name", "first_name"],
+
   // The text to show on the submit button; defaults to "Take Action".
   submitText: "Send Message",
 

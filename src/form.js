@@ -3,7 +3,9 @@ import contains from "underscore/contains"
 import forEach from "underscore/forEach"
 import isObject from "underscore/isObject"
 import luminate from "luminateExtend"
+import invert from "underscore/invert"
 import map from "underscore/map"
+import sortBy from "underscore/sortBy"
 import template from "underscore/template"
 
 import { log } from "./util"
@@ -264,14 +266,14 @@ const stateOptions = `
 
 export function renderForm(action, options) {
   const { alert, _recipients, questions: rawQuestions } = action
-  const { fieldNames, hiddenFields, skippedFields, submitText } = options
+  const { fieldNames, fieldOrder, hiddenFields, skippedFields, submitText } = options
   const questions = luminate.utils.ensureArray(rawQuestions.question)
 
   // We track these fields separately since they have to be rendered in their
   // own block.
   let subjectField, bodyField
 
-  const fields = compact(map(questions, question => {
+  const unsortedFields = compact(map(questions, question => {
     if (contains(skippedFields, question.questionId)) {
       return
     }
@@ -317,6 +319,11 @@ export function renderForm(action, options) {
       return field
     }
   }))
+
+  // Sort fields by their position in `fieldOrder`, leaving any leftovers at
+  // the end in their original order.
+  const fieldIndexes = invert(fieldOrder || [])
+  const fields = sortBy(unsortedFields, f => fieldIndexes[f.name] || Infinity)
 
   return render({
     alert,
