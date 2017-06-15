@@ -264,7 +264,7 @@ const stateOptions = `
 
 export function renderForm(action, options) {
   const { alert, _recipients, questions: rawQuestions } = action
-  const { fieldNames, hiddenFields, submitText } = options
+  const { fieldNames, hiddenFields, skippedFields, submitText } = options
   const questions = luminate.utils.ensureArray(rawQuestions.question)
 
   // We track these fields separately since they have to be rendered in their
@@ -272,6 +272,10 @@ export function renderForm(action, options) {
   let subjectField, bodyField
 
   const fields = compact(map(questions, question => {
+    if (contains(skippedFields, question.questionId)) {
+      return
+    }
+
     const choices = question.questionChoices &&
       luminate.utils.ensureArray(question.questionChoices.choice)
 

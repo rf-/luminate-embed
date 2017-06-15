@@ -7,7 +7,7 @@ import commonjs from "rollup-plugin-commonjs"
 
 const min = !!process.env.MIN
 
-const name = "luminate-embed-0.0.1"
+const name = "luminate-embed-0.0.2"
 let dest = "build/" + name + ".js"
 
 const plugins = [

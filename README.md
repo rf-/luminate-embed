@@ -111,7 +111,11 @@ _leQ.push({
   // An array of `questionId`s to hide from the user; when the user takes
   // the action, the default values for these fields will be sent to the
   // server.
-  hiddenFields: ["cc", "subject", "body"],
+  hiddenFields: ["subject", "body"],
+
+  // An array of `questionId`s to completely leave out of the form and not send
+  // to the server.
+  skippedFields: ["cc"],
 
   // The text to show on the submit button; defaults to "Take Action".
   submitText: "Send Message",
